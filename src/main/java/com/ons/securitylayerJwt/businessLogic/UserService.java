@@ -63,7 +63,9 @@ public class UserService implements IUserService{
             user.setRoles(Collections.singletonList(role));
             iUserRepository.save(user);
             String token = jwtUtilities.generateToken(registerDto.getEmail(),Collections.singletonList(role.getRoleName()));
-            return new ResponseEntity<>(new BearerToken(token , "Bearer "),HttpStatus.OK); }
+            return new ResponseEntity<>(new BearerToken(token , "Bearer "),HttpStatus.OK);
+
+        }
         }
 
     @Override

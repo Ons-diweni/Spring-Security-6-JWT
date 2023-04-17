@@ -5,25 +5,28 @@ package com.ons.securitylayerJwt.security;
 import io.jsonwebtoken.*;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.util.StringUtils;
 
 
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.function.Function;
 
 @Slf4j
 @Component
-public class JwtUtilities {
+public class JwtUtilities{
 
 
-    private String secret = "ye874kte5874zsdal54FKpqa8425rceS";
-    private static final long  jwtExpiration = 1000 * 60 * 60 * 10 ;
+    @Value("${jwt.secret}")
+    private String secret;
 
+    @Value("${jwt.expiration}")
+    private Long jwtExpiration;
 
 
     public String extractUsername(String token) {
@@ -49,7 +52,7 @@ public class JwtUtilities {
     public String generateToken(String email , List<String> roles) {
 
         return Jwts.builder().setSubject(email).claim("role",roles).setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + jwtExpiration))
+                .setExpiration(Date.from(Instant.now().plus(jwtExpiration, ChronoUnit.MILLIS)))
                 .signWith(SignatureAlgorithm.HS256, secret).compact();
     }
 

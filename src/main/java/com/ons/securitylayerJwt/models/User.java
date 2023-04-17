@@ -15,6 +15,7 @@ import java.util.*;
 @Getter
 @Setter
 @AllArgsConstructor
+@ToString
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class User implements Serializable , UserDetails {
