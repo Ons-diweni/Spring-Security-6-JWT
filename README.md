@@ -1,8 +1,9 @@
 ![](https://img.shields.io/badge/Spring_boot_3-blueviolet?style=for-the-badge)
 ![](https://img.shields.io/badge/Spring_Security_6-blueviolet?style=for-the-badge)
 ![](https://img.shields.io/badge/Java_17-yellow?style=for-the-badge)
-![](https://img.shields.io/badge/Json_web_token-blue?style=for-the-badge)
- $\mathcal{{Spring \ Security \ With \ JWT } \ \}$
+![](https://img.shields.io/badge/Json_web_token-blue?style=for-the-badge)  
+
+ $\mathcal{{Spring \ Security \ 6 \ demo } \ \}$  
  $\ \ {Spring \ Boot \ application \ that \ makes \ use \ of \ JWT \ for \ securing \ an \ exposed \ REST \ API \ }$ 
 
 
